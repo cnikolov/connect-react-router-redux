@@ -1,5 +1,5 @@
 {
-  "name": "connected-react-router-example-basic",
+  "name": "connect-react-router-redux-example-basic",
   "version": "1.0.0",
   "description": "A basic example for Connected React Router",
   "main": "src/index.js",
@@ -7,7 +7,7 @@
     "dev": "node server.js",
     "build": "webpack --mode production"
   },
-  "author": "Supasate Choochaisri",
+  "author": "cnikolov ",
   "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.1.2",
@@ -23,7 +23,7 @@
     "webpack-hot-middleware": "^2.24.3"
   },
   "dependencies": {
-    "connected-react-router": "^6.0.0",
+    "connect-react-router-redux": "^6.0.0",
     "history": "^4.7.2",
     "prop-types": "^15.6.2",
     "react": "^16.6.0",

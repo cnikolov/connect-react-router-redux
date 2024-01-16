@@ -7,20 +7,20 @@
 - [How to hot reload reducers](#how-to-hot-reload-reducers)
 - [How to support Immutable.js](#how-to-support-immutablejs)
 - [How to migrate from v4 to v5/v6](#how-to-migrate-from-v4-to-v5v6)
-- [How to use connected-react-router with react native](#how-to-use-connected-react-router-with-react-native)
+- [How to use connect-react-router-redux with react native](#how-to-use-connect-react-router-redux-with-react-native)
 - [How to use your own context with react-redux](#how-to-use-your-own-context-with-react-redux)
 
 ### How to navigate with Redux action
 #### with store.dispatch
 ```js
-import { push } from 'connected-react-router'
+import { push } from 'connect-react-router-redux'
 
 store.dispatch(push('/path/to/somewhere'))
 ```
 
 #### with react-redux
 ```js
-import { push } from 'connected-react-router'
+import { push } from 'connect-react-router-redux'
 
 // in component render:
 <div onClick={() => {
@@ -36,7 +36,7 @@ export default connect(null, { push })(Component);
 
 #### in redux thunk
 ```js
-import { push } from 'connected-react-router'
+import { push } from 'connect-react-router-redux'
 
 export const login = (username, password) => (dispatch) => {
 
@@ -48,7 +48,7 @@ export const login = (username, password) => (dispatch) => {
 ```
 #### in redux saga
 ```js
-import { push } from 'connected-react-router'
+import { push } from 'connect-react-router-redux'
 import { put, call } from 'redux-saga/effects'
 
 export function* login(username, password) {
@@ -125,7 +125,7 @@ const history = createMemoryHistory({
 ``` js
 import React from 'react'
 import { Route, Switch } from 'react-router' /* react-router v4/v5 */
-import { ConnectedRouter } from 'connected-react-router'
+import { ConnectedRouter } from 'connect-react-router-redux'
 
 const App = ({ history }) => ( /* receive history object via props */
   <ConnectedRouter history={history}>
@@ -216,10 +216,10 @@ if (module.hot) {
 ### How to support Immutable.js
 1) Create your root reducer as a function that takes `history` and returns reducer. Use `combineReducers` from `redux-immutable` to return the root reducer.
 
-2) Import `connectRouter` from `connected-react-router/immutable` and add router reducer to root reducer
+2) Import `connectRouter` from `connect-react-router-redux/immutable` and add router reducer to root reducer
 ```js
 import { combineReducers } from 'redux-immutable'
-import { connectRouter } from 'connected-react-router/immutable'
+import { connectRouter } from 'connect-react-router-redux/immutable'
 ...
 const rootReducer = (history) => combineReducers({
   router: connectRouter(history),
@@ -228,9 +228,9 @@ const rootReducer = (history) => combineReducers({
 ...
 ```
 
-2) Import `ConnectedRouter` and `routerMiddleware` from `connected-react-router/immutable` instead of `connected-react-router`.
+2) Import `ConnectedRouter` and `routerMiddleware` from `connect-react-router-redux/immutable` instead of `connect-react-router-redux`.
 ```js
-import { ConnectedRouter, routerMiddleware } from 'connected-react-router/immutable'
+import { ConnectedRouter, routerMiddleware } from 'connect-react-router-redux/immutable'
 ```
 
 3) Create your root reducer with router reducer by passing `history` to `rootReducer` function
@@ -263,7 +263,7 @@ It's easy to migrate from v4 to v5/v6.
   // reducers.js
 
   import { combineReducers } from 'redux'
-+ import { connectRouter } from 'connected-react-router'
++ import { connectRouter } from 'connect-react-router-redux'
 
 - export default combineReducers({
 + export default (history) => combineReducers({
@@ -278,8 +278,8 @@ It's easy to migrate from v4 to v5/v6.
   ...
   import { createBrowserHistory } from 'history'
   import { applyMiddleware, compose, createStore } from 'redux'
-- import { connectRouter, routerMiddleware } from 'connected-react-router'
-+ import { routerMiddleware } from 'connected-react-router'
+- import { connectRouter, routerMiddleware } from 'connect-react-router-redux'
++ import { routerMiddleware } from 'connect-react-router-redux'
 - import rootReducer from './reducers'
 + import createRootReducer from './reducers'
 
@@ -310,7 +310,7 @@ It's easy to migrate from v4 to v5/v6.
 + store.replaceReducer(nextCreateRootReducer(history))
 ```
 
-### How to use connected-react-router with react native
+### How to use connect-react-router-redux with react native
 #### History does not exist, how can I configure my redux store?
 As you know react native does not support natively the HTML5 history API, it's supposed to be available only for web browsers. This issue can be solved by using [`createMemoryHistory`](https://github.com/ReactTraining/history/blob/master/docs/GettingStarted.md#intro).
 

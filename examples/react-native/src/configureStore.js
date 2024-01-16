@@ -1,6 +1,6 @@
 import {createMemoryHistory} from 'history';
 import {createStore, combineReducers} from 'redux';
-import {connectRouter} from 'connected-react-router';
+import {connectRouter} from 'connect-react-router-redux';
 
 const initialState = {router: createMemoryHistory()};
 

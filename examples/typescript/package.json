@@ -1,5 +1,5 @@
 {
-  "name": "connected-react-router-example-typescript",
+  "name": "connect-react-router-redux-example-typescript",
   "version": "1.0.0",
   "description": "A basic example for Connected React Router with TypeScript",
   "main": "src/index.tsx",
@@ -7,7 +7,7 @@
     "dev": "webpack-dev-server",
     "build": "webpack --mode production"
   },
-  "author": "Supasate Choochaisri",
+  "author": "cnikolov ",
   "license": "MIT",
   "devDependencies": {
     "@types/history": "^4.7.2",
@@ -26,7 +26,7 @@
     "webpack-dev-server": "^3.1.11"
   },
   "dependencies": {
-    "connected-react-router": "^6.0.0",
+    "connect-react-router-redux": "^6.0.0",
     "history": "^4.7.2",
     "react": "^16.6.0",
     "react-dom": "^16.6.0",

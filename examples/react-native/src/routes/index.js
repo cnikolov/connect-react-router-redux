@@ -1,5 +1,5 @@
 import React from 'react';
-import {ConnectedRouter} from 'connected-react-router';
+import {ConnectedRouter} from 'connect-react-router-redux';
 import {NativeRouter, Route} from 'react-router-native';
 import Home from '../screens/Home';
 import Account from '../screens/Account';

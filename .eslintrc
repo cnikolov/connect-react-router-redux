@@ -1,5 +1,9 @@
 {
-  "parser": "babel-eslint",
+  "parser": "@babel/eslint-parser",
+  "parserOptions": {
+    "requireConfigFile": false,
+    "ecmaVersion": "latest"
+  },
   "env": {
     "browser": true,
     "node": true
@@ -21,7 +25,7 @@
   },
   "settings": {
     "react": {
-      "version": "16.0"
+      "version": "18.2"
     }
   }
 }

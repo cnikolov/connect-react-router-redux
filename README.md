@@ -1,8 +1,8 @@
-> Breaking change in v5.0.0! Please read [How to migrate from v4 to v5/v6](https://github.com/supasate/connected-react-router/blob/master/FAQ.md#how-to-migrate-from-v4-to-v5v6).
+> Breaking change in v5.0.0! Please read [How to migrate from v4 to v5/v6](https://github.com/cnikolov/connect-react-router-redux/blob/master/FAQ.md#how-to-migrate-from-v4-to-v5v6).
 
 > v6.0.0 requires React v16.4.0 and React Redux v6.0 / v7.0.
 
-Connected React Router [![Build Status](https://travis-ci.org/supasate/connected-react-router.svg?branch=master)](https://travis-ci.org/supasate/connected-react-router) [![Open Source Helpers](https://www.codetriage.com/supasate/connected-react-router/badges/users.svg)](https://www.codetriage.com/supasate/connected-react-router)
+Connected React Router [![Build Status](https://travis-ci.org/cnikolov/connect-react-router-redux.svg?branch=master)](https://travis-ci.org/cnikolov/connect-react-router-redux) [![Open Source Helpers](https://www.codetriage.com/cnikolov/connect-react-router-redux/badges/users.svg)](https://www.codetriage.com/cnikolov/connect-react-router-redux)
 ======================
 A Redux binding for React Router v4 and v5
 
@@ -30,11 +30,11 @@ Installation
 Connected React Router requires **React 16.4 and React Redux 6.0 or later**.
 
 
-    npm install --save connected-react-router
+    npm install --save connect-react-router-redux
 
 Or
 
-    yarn add connected-react-router
+    yarn add connect-react-router-redux
 
 Usage
 -----
@@ -47,7 +47,7 @@ In your root reducer file,
 ```js
 // reducers.js
 import { combineReducers } from 'redux'
-import { connectRouter } from 'connected-react-router'
+import { connectRouter } from 'connect-react-router-redux'
 
 const createRootReducer = (history) => combineReducers({
   router: connectRouter(history),
@@ -68,7 +68,7 @@ When creating a Redux store,
 ...
 import { createBrowserHistory } from 'history'
 import { applyMiddleware, compose, createStore } from 'redux'
-import { routerMiddleware } from 'connected-react-router'
+import { routerMiddleware } from 'connect-react-router-redux'
 import createRootReducer from './reducers'
 ...
 export const history = createBrowserHistory()
@@ -91,7 +91,7 @@ export default function configureStore(preloadedState) {
 
 ### Step 3
 
-- Wrap your react-router v4/v5 routing with `ConnectedRouter` and pass the `history` object as a prop.  Remember to delete any usage of `BrowserRouter` or `NativeRouter` as leaving this in will [cause](https://github.com/supasate/connected-react-router/issues/230#issuecomment-461628073) [problems](https://github.com/supasate/connected-react-router/issues/230#issuecomment-476164384) synchronising the state.
+- Wrap your react-router v4/v5 routing with `ConnectedRouter` and pass the `history` object as a prop.  Remember to delete any usage of `BrowserRouter` or `NativeRouter` as leaving this in will [cause](https://github.com/cnikolov/connect-react-router-redux/issues/230#issuecomment-461628073) [problems](https://github.com/cnikolov/connect-react-router-redux/issues/230#issuecomment-476164384) synchronising the state.
 - Place `ConnectedRouter` as a child of `react-redux`'s `Provider`.
 - **N.B.** If doing server-side rendering, you should still use the `StaticRouter` from `react-router` on the server.
 
@@ -100,7 +100,7 @@ export default function configureStore(preloadedState) {
 ...
 import { Provider } from 'react-redux'
 import { Route, Switch } from 'react-router' // react-router v4/v5
-import { ConnectedRouter } from 'connected-react-router'
+import { ConnectedRouter } from 'connect-react-router-redux'
 import configureStore, { history } from './configureStore'
 ...
 const store = configureStore(/* provide initial state if any */)
@@ -126,20 +126,20 @@ Now, it's ready to work!
 
 Examples
 --------
-See the [examples](https://github.com/supasate/connected-react-router/tree/master/examples) folder
+See the [examples](https://github.com/cnikolov/connect-react-router-redux/tree/master/examples) folder
 
-[FAQ](https://github.com/supasate/connected-react-router/tree/master/FAQ.md)
+[FAQ](https://github.com/cnikolov/connect-react-router-redux/tree/master/FAQ.md)
 -----
-- [How to navigate with Redux action](https://github.com/supasate/connected-react-router/tree/master/FAQ.md#how-to-navigate-with-redux-action)
-- [How to get the current browser location (URL)](https://github.com/supasate/connected-react-router/tree/master/FAQ.md#how-to-get-the-current-browser-location-url)
-- [How to set Router props e.g. basename, initialEntries, etc.](https://github.com/supasate/connected-react-router/tree/master/FAQ.md#how-to-set-router-props-eg-basename-initialentries-etc)
-- [How to hot reload functional components](https://github.com/supasate/connected-react-router/tree/master/FAQ.md#how-to-hot-reload-functional-components)
-- [How to hot reload reducers](https://github.com/supasate/connected-react-router/tree/master/FAQ.md#how-to-hot-reload-reducers)
-- [How to support Immutable.js](https://github.com/supasate/connected-react-router/tree/master/FAQ.md#how-to-support-immutablejs)
+- [How to navigate with Redux action](https://github.com/cnikolov/connect-react-router-redux/tree/master/FAQ.md#how-to-navigate-with-redux-action)
+- [How to get the current browser location (URL)](https://github.com/cnikolov/connect-react-router-redux/tree/master/FAQ.md#how-to-get-the-current-browser-location-url)
+- [How to set Router props e.g. basename, initialEntries, etc.](https://github.com/cnikolov/connect-react-router-redux/tree/master/FAQ.md#how-to-set-router-props-eg-basename-initialentries-etc)
+- [How to hot reload functional components](https://github.com/cnikolov/connect-react-router-redux/tree/master/FAQ.md#how-to-hot-reload-functional-components)
+- [How to hot reload reducers](https://github.com/cnikolov/connect-react-router-redux/tree/master/FAQ.md#how-to-hot-reload-reducers)
+- [How to support Immutable.js](https://github.com/cnikolov/connect-react-router-redux/tree/master/FAQ.md#how-to-support-immutablejs)
 - [How to implement server-side rendering](https://medium.com/@cereallarceny/server-side-rendering-in-create-react-app-with-all-the-goodies-without-ejecting-4c889d7db25e) ([sample codebase](https://github.com/cereallarceny/cra-ssr))
-- [How to migrate from v4 to v5](https://github.com/supasate/connected-react-router/tree/master/FAQ.md#how-to-migrate-from-v4-to-v5)
-- [How to use connected-react-router with react native](./FAQ.md#how-to-use-connected-react-router-with-react-native)
-- [How to use your own context with react-redux](https://github.com/supasate/connected-react-router/tree/master/FAQ.md#how-to-use-your-own-context-with-react-redux)
+- [How to migrate from v4 to v5](https://github.com/cnikolov/connect-react-router-redux/tree/master/FAQ.md#how-to-migrate-from-v4-to-v5)
+- [How to use connect-react-router-redux with react native](./FAQ.md#how-to-use-connect-react-router-redux-with-react-native)
+- [How to use your own context with react-redux](https://github.com/cnikolov/connect-react-router-redux/tree/master/FAQ.md#how-to-use-your-own-context-with-react-redux)
 
 Build
 -----
@@ -178,8 +178,8 @@ const App = ({ history, context }) => {
 
 Contributors
 ------------
-See [Contributors](https://github.com/supasate/connected-react-router/graphs/contributors) and [Acknowledge](https://github.com/supasate/connected-react-router/blob/master/ACKNOWLEDGE.md).
+See [Contributors](https://github.com/cnikolov/connect-react-router-redux/graphs/contributors) and [Acknowledge](https://github.com/cnikolov/connect-react-router-redux/blob/master/ACKNOWLEDGE.md).
 
 License
 -------
-[MIT License](https://github.com/supasate/connected-react-router/blob/master/LICENSE.md)
+[MIT License](https://github.com/cnikolov/connect-react-router-redux/blob/master/LICENSE.md)
